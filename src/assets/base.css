@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;600;700&family=Rajdhani:wght@400;500;600&display=swap');
+
+/* ─── FICSIT Design System ───────────────────────────── */
+:root {
+    /* Backgrounds */
+    --bg-deep: #0e1419;
+    --bg-panel: #1b232b;
+    --bg-panel-2: #22303b;
+
+    /* Accent — FICSIT orange */
+    --accent: #fa9549;
+    --accent-hi: #ffb066;
+    --accent-lo: #e5821f;
+
+    /* Text */
+    --text: #e8eef2;
+    --text-muted: #93a1ab;
+
+    /* Borders */
+    --border: #2e3c46;
+
+    /* Semantic */
+    --ok: #4caf50;
+    --warn: #fbc02d;
+    --danger: #d32f2f;
+
+    /* Geometry */
+    --radius: 8px;
+    --radius-sm: 4px;
+
+    /* Shadows */
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+    --glow-accent: 0 0 0 1px var(--accent), 0 0 12px rgba(250, 149, 73, 0.35);
+
+    /* Legacy aliases used in planner component styles */
+    --color-background: var(--bg-deep);
+    --color-background-soft: var(--bg-panel);
+    --color-background-mute: var(--bg-panel-2);
+    --color-border: var(--border);
+    --color-border-hover: var(--accent-lo);
+    --color-heading: var(--text);
+    --color-text: var(--text);
+    --color-primary: var(--bg-panel-2);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--text);
+    background-color: var(--bg-deep);
+    background-image: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(250, 149, 73, 0.08) 0%, transparent 70%);
+    line-height: 1.6;
+    font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+}
+
+.dimmed {
+    color: var(--text-muted);
+}

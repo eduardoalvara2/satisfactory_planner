@@ -1,0 +1,24 @@
+@import './base.css';
+
+#app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+    transition: color 150ms ease;
+}
+
+a:hover {
+    color: var(--accent-hi);
+}
+
+@media (min-width: 1024px) {
+    #app {
+        padding: 0 2.5rem 4rem;
+    }
+}
