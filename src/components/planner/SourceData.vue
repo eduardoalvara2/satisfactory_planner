@@ -578,6 +578,37 @@ export default {
                     name: 'Oil Pump',
                     id: 'oil_pump',
                     color: '#FFC107'
+                },
+                {
+                    name: 'Fuel-Powered Generator',
+                    id: 'fuel_generator',
+                    color: '#E65100',
+                    recipes: [
+                        {
+                            name: 'Power from Fuel',
+                            id: 'power_from_fuel',
+                            asset_id: 'power',
+                            quantity_per_minute: 250,
+                            ingredients: [
+                                {
+                                    asset_id: 'fuel',
+                                    quantity_per_minute: 20
+                                }
+                            ]
+                        },
+                        {
+                            name: 'Power from Turbofuel',
+                            id: 'power_from_turbofuel',
+                            asset_id: 'power',
+                            quantity_per_minute: 250,
+                            ingredients: [
+                                {
+                                    asset_id: 'turbofuel',
+                                    quantity_per_minute: 7.5
+                                }
+                            ]
+                        }
+                    ]
                 }
             ],
             resource_types: [
@@ -811,6 +842,14 @@ export default {
                 {
                     name: 'Stator',
                     id: 'stator'
+                },
+                {
+                    name: 'Fuel',
+                    id: 'fuel'
+                },
+                {
+                    name: 'Turbofuel',
+                    id: 'turbofuel'
                 }
             ],
             global_assets_dictionary: null,
