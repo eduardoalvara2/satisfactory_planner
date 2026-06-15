@@ -279,11 +279,26 @@ export default {
                 <div class="controls-row">
                     <label class="control-field">
                         <span class="control-label">Máquinas</span>
-                        <input type="number" v-model="pivot_number_of_machines" min="1" />
+                        <div class="number-stepper">
+                            <button class="stepper-btn"
+                                @click="pivot_number_of_machines = Math.max(1, Number(pivot_number_of_machines) - 1)">−</button>
+                            <input type="number" v-model="pivot_number_of_machines" min="1" />
+                            <button class="stepper-btn"
+                                @click="pivot_number_of_machines = Number(pivot_number_of_machines) + 1">+</button>
+                        </div>
                     </label>
                     <label class="control-field">
                         <span class="control-label">Overclock %</span>
-                        <input type="number" v-model="pivot_overclock" min="1" max="250" />
+                        <div class="overclock-slider">
+                            <input type="range" v-model="pivot_overclock" min="1" max="250" list="overclock-ticks" />
+                            <datalist id="overclock-ticks">
+                                <option value="100"></option>
+                                <option value="150"></option>
+                                <option value="200"></option>
+                                <option value="250"></option>
+                            </datalist>
+                            <span class="overclock-value">{{ pivot_overclock }}%</span>
+                        </div>
                     </label>
                 </div>
             </div>
@@ -643,13 +658,46 @@ export default {
     color: var(--text-muted);
 }
 
-input[type="number"] {
-    width: 90px;
-    padding: 0.5rem 0.75rem;
+.number-stepper {
+    display: flex;
+    align-items: stretch;
+}
+
+.stepper-btn {
+    width: 32px;
+    background: var(--bg-panel-2);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 150ms ease, border-color 150ms ease;
+    line-height: 1;
+    padding: 0;
+}
+
+.stepper-btn:first-child {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    border-right: none;
+}
+
+.stepper-btn:last-child {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border-left: none;
+}
+
+.stepper-btn:hover {
+    background: color-mix(in srgb, var(--accent) 15%, var(--bg-panel-2));
+    border-color: var(--accent);
+}
+
+.number-stepper input[type="number"] {
+    width: 64px;
+    padding: 0.5rem 0.25rem;
     background: var(--bg-deep);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
+    border-radius: 0;
     font-family: 'Rajdhani', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -658,10 +706,34 @@ input[type="number"] {
     appearance: textfield;
 }
 
-input[type="number"]:focus-visible {
+.number-stepper input[type="number"]:focus-visible {
     outline: none;
     border-color: var(--accent);
     box-shadow: var(--glow-accent);
+}
+
+/* Overclock slider */
+.overclock-slider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.overclock-slider input[type="range"] {
+    width: 140px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    height: 4px;
+    appearance: auto;
+}
+
+.overclock-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 3.5rem;
+    text-align: right;
 }
 
 /* Warning block */

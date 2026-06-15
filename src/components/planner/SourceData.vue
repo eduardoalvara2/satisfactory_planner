@@ -645,8 +645,8 @@ export default {
                     id: 'quartz'
                 },
                 {
-                    name: 'Oil',
-                    id: 'oil'
+                    name: 'Crude Oil',
+                    id: 'crude_oil'
                 },
                 {
                     name: 'Water',
